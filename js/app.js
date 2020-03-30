@@ -154,18 +154,19 @@
 
     if (typeof event.webkitCompassHeading !== "undefined") {
       heading = event.webkitCompassHeading; //iOS non-standard
-      // 
-      // var lat1 = position.coords.latitude;
-      // var lon1 = position.coords.longitude;
-      // var lat2 = 45.615849;
-      // var lon2 = -122.4932303;
-      //
-      // var y = Math.sin(lon2-lon1) * Math.cos(lat2);
-      // var x = Math.cos(lat1)*Math.sin(lat2) - Math.sin(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1);
-      // var brng = Math.atan2(y, x).toDegrees();
-      //
-      // heading = (heading + brng) % 360;
 
+      var lat1 = position.coords.latitude;
+      var lon1 = position.coords.longitude;
+      var lat2 = 45.615849;
+      var lon2 = -122.4932303;
+
+      var y = Math.sin(lon2-lon1) * Math.cos(lat2);
+      var x = Math.cos(lat1)*Math.sin(lat2) - Math.sin(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1);
+      var brng = Math.atan2(y, x).toDegrees();
+
+      heading = (heading + brng) % 360;
+
+      console.log(heading)
     }
 
     var orientation = getBrowserOrientation();
