@@ -352,7 +352,7 @@
 
   // called on device orientation change
   function onHeadingChange(event) {
-    var heading = event.alpha;
+
     var lat1 = position.coords.latitude;
     var lon1 = position.coords.longitude;
     var lat2 = 45.615849;
@@ -362,7 +362,7 @@
     var x = Math.cos(lat1)*Math.sin(lat2) - Math.sin(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1);
     var brng = Math.atan2(y, x).toDegrees();
 
-    var heading = (heading + brng) % 360;
+    var heading = (event.alpha + brng) % 360;
 
     var orientation = getBrowserOrientation();
 
