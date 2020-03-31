@@ -354,8 +354,8 @@
   function onHeadingChange(event) {
     var heading = event.alpha;
 
-    if (typeof event.webkitCompassHeading !== "undefined") {
-      heading = event.webkitCompassHeading; //iOS non-standard
+    if (typeof event.geolocationCoordinatesInstance.heading !== "undefined") {
+      heading = event.geolocationCoordinatesInstance.heading; //iOS non-standard
 
       console.log(heading);
     }
