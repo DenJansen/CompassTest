@@ -355,7 +355,7 @@
     var heading = event.alpha;
 
     if (typeof event.webkitCompassHeading !== "undefined") {
-      heading = event.webkitCompassHeading; //iOS non-standard
+      var hdg = event.webkitCompassHeading; //iOS non-standard
 
       var lat1 = position.coords.latitude;
       var lon1 = position.coords.longitude;
@@ -366,7 +366,7 @@
       var x = Math.cos(lat1)*Math.sin(lat2) - Math.sin(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1);
       var brng = Math.atan2(y, x).toDegrees();
 
-      heading = (heading + brng) % 360;
+      heading = (hdg + brng) % 360;
 
       console.log(heading);
     }
