@@ -354,9 +354,6 @@
   function onHeadingChange(event) {
     var heading = event.alpha;
 
-    heading = GeolocationCoordinates.heading; //iOS non-standard
-
-
     console.log(heading)
     var orientation = getBrowserOrientation();
 
@@ -595,7 +592,7 @@
     debugOrientationDefault.textContent = defaultOrientation;
   }
 
-  window.addEventListener("deviceorientation", onHeadingChange);
+  window.addEventListener("deviceorientationabsolute", onHeadingChange(event), true);
 
   document.addEventListener("fullscreenchange", onFullscreenChange);
   document.addEventListener("webkitfullscreenchange", onFullscreenChange);
