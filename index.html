@@ -363,9 +363,9 @@
     var x = Math.cos(lat1)*Math.sin(lat2) - Math.sin(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1);
     var brng = Math.atan2(y, x).toDegrees();
 
-    console.log(heading)
-    console.log(lat1)
-    console.log(lon1)
+    console.log(heading);
+    console.log(lat1);
+    console.log(lon1);
     var orientation = getBrowserOrientation();
 
     if (typeof heading !== "undefined" && heading !== null) { // && typeof orientation !== "undefined") {
