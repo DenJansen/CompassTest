@@ -592,6 +592,7 @@
     debugOrientationDefault.textContent = defaultOrientation;
   }
 
+  window.ondeviceorientationabsolute = onHeadingChange;
   window.addEventListener("deviceorientationabsolute", onHeadingChange, true);
 
   document.addEventListener("fullscreenchange", onFullscreenChange);
