@@ -352,7 +352,8 @@
 
   // called on device orientation change
   function onHeadingChange(event) {
-    var heading = event.geolocationCoordinatesInstance.heading;
+    var heading = event.webkitCompassHeading; //iOS non-standard
+
 
     console.log(heading)
     var orientation = getBrowserOrientation();
