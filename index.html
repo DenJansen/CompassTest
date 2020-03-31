@@ -354,8 +354,8 @@
   function onHeadingChange(event) {
     var heading = event.alpha;
 
-    if (geolocationCoordinatesInstance.heading) {
-      heading = geolocationCoordinatesInstance.heading; //iOS non-standard
+    if (event.geolocationCoordinatesInstance.heading) {
+      heading = event.geolocationCoordinatesInstance.heading; //iOS non-standard
 
       console.log(heading);
     }
