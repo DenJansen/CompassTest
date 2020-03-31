@@ -354,6 +354,8 @@
   function onHeadingChange(event) {
     var heading = event.alpha;
 
+    heading = event.webkitCompassHeading; //iOS non-standard
+
     console.log(heading)
     var orientation = getBrowserOrientation();
 
