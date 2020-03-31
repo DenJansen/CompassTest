@@ -354,12 +354,13 @@
   function onHeadingChange(event) {
     var heading = event.alpha;
 
-    if (event.geolocationCoordinatesInstance.heading) {
-      heading = event.geolocationCoordinatesInstance.heading; //iOS non-standard
+    if (typeof geolocationCoordinatesInstance.heading !== "undefined") {
+      heading = geolocationCoordinatesInstance.heading; //iOS non-standard
 
       console.log(heading);
     }
 
+    console.log(heading)
     var orientation = getBrowserOrientation();
 
     if (typeof heading !== "undefined" && heading !== null) { // && typeof orientation !== "undefined") {
