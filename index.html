@@ -352,7 +352,7 @@
 
   // called on device orientation change
   function onHeadingChange(event) {
-    var heading = geolocationCoordinatesInstance.heading;
+    var heading = event.geolocationCoordinatesInstance.heading;
 
     console.log(heading)
     var orientation = getBrowserOrientation();
