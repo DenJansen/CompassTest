@@ -354,16 +354,6 @@
   function onHeadingChange(event) {
     var heading = event.alpha;
 
-    var lat1 = geoloc.coords.latitude;
-    var lon1 = geoloc.coords.longitude;
-    var lat2 = 45.615849;
-    var lon2 = -122.4932303;
-    console.log(lat1)
-    console.log(lat2)
-    var y = Math.sin(lon2-lon1) * Math.cos(lat2);
-    var x = Math.cos(lat1)*Math.sin(lat2) - Math.sin(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1);
-    var brng = Math.atan2(y, x).toDegrees();
-
     var orientation = getBrowserOrientation();
 
     if (typeof heading !== "undefined" && heading !== null) { // && typeof orientation !== "undefined") {
@@ -626,12 +616,6 @@
     maximumAge: 30000,
     timeout: 27000
   });
-
-  console.log(  navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
-      enableHighAccuracy: false,
-      maximumAge: 30000,
-      timeout: 27000
-    }))
 
   setNightmode(false);
   checkLockable();
