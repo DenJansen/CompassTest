@@ -621,13 +621,13 @@
   popup.addEventListener("click", popupClose);
   popupContents.addEventListener("click", popupContentsClick);
 
-  var geoloc = navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
+  navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
     enableHighAccuracy: false,
     maximumAge: 30000,
     timeout: 27000
   });
 
-  console.log(geoloc, "This is geoloc")
+  console.log(navigator.geolocation)
 
   setNightmode(false);
   checkLockable();
