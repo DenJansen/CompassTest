@@ -627,7 +627,11 @@
     timeout: 27000
   });
 
-  console.log(navigator.geolocation)
+  console.log(  navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
+      enableHighAccuracy: false,
+      maximumAge: 30000,
+      timeout: 27000
+    }))
 
   setNightmode(false);
   checkLockable();
