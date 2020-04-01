@@ -359,8 +359,8 @@
 
     var lat1 = geolat * pi / 180;
     var lon1 = geolon * pi / 180;
-    var lat2 = 45.615849 * pi / 180;
-    var lon2 = -122.4932303 * pi / 180;
+    var lat2 = 39.962559 * pi / 180;
+    var lon2 = -105.511276 * pi / 180;
 
     var x = Math.cos(lat2) * Math.sin(lon2 - lon1);
     var y = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2-lon1);
@@ -368,7 +368,7 @@
 
     var heading = (hdg + brng) % 360
     console.log(heading)
-    
+
     var orientation = getBrowserOrientation();
 
     if (typeof heading !== "undefined" && heading !== null) { // && typeof orientation !== "undefined") {
