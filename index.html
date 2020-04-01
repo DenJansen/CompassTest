@@ -357,14 +357,20 @@
     var heading = event.alpha;
     var pi = Math.PI;
 
-    var lat1 = geolat * pi / 180;
-    var lon1 = geolon * pi / 180;
-    var lat2 = 45.615849 * pi / 180;
-    var lon2 = -122.4932303 * pi / 180;
+    var lat1 = geolat;
+    var lon1 = geolon;
+    var lat2 = 45.615849;
+    var lon2 = -122.4932303;
 
     var y = Math.sin(lon2-lon1) * Math.cos(lat2);
     var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2-lon1);
     var brng = Math.atan2(y, x) * 180 / pi;
+
+    console.log(lat1, "Origin Latitude")
+    console.log(lon1, "Origin Longitude")
+    console.log(lat2, "Dest Latitude")
+    console.log(lon2, "Dest Longitude")
+
 
     console.log(brng, "Should be about 241.93")
 
