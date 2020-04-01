@@ -514,6 +514,9 @@
     positionLat.textContent = decimalToSexagesimal(positionCurrent.lat, "lat");
     positionLng.textContent = decimalToSexagesimal(positionCurrent.lng, "lng");
 
+    var geoloc = (position.coords.latitude, position.coords.longitude);
+
+    return geoloc
   }
 
   function locationUpdateFail(error) {
