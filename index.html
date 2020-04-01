@@ -354,7 +354,7 @@
 
   // called on device orientation change
   function onHeadingChange(event) {
-    var heading = event.alpha;
+    var hdg = event.alpha;
     var pi = Math.PI;
 
     var lat1 = geolat * pi / 180;
@@ -366,11 +366,9 @@
     var y = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2-lon1);
     var brng = (Math.atan2(x, y) * 180 / pi) + 360;
 
-    console.log(x, "Should be about -0.0002625765")
-    console.log(y, "Should be about -0.0001439579")
-
-    console.log(brng, "Should be about 241.93")
-
+    var heading = (hdg + brng) % 360
+    console.log(heading)
+    
     var orientation = getBrowserOrientation();
 
     if (typeof heading !== "undefined" && heading !== null) { // && typeof orientation !== "undefined") {
