@@ -519,6 +519,10 @@
     return geoloc
   }
 
+  var locinfo = geoloc;
+
+  console.log(locinfo, "This is locinfo")
+
   function locationUpdateFail(error) {
     positionLat.textContent = "n/a";
     positionLng.textContent = "n/a";
