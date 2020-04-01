@@ -242,6 +242,8 @@
   var btnMap = document.getElementById("btn-map");
   var btnInfo = document.getElementById("btn-info");
 
+  var geolat = 0;
+  var geolon = 0;
 
   // if we have shown the heading unavailable warning yet
   var warningHeadingShown = false;
@@ -353,6 +355,9 @@
   // called on device orientation change
   function onHeadingChange(event) {
     var heading = event.alpha;
+
+    console.log(geolat, "This is geolat")
+    console.log(geolon, "This is geolon")
 
     var orientation = getBrowserOrientation();
 
@@ -500,6 +505,9 @@
   function locationUpdate(position) {
     positionCurrent.lat = position.coords.latitude;
     positionCurrent.lng = position.coords.longitude;
+
+    geolat = position.coords.latitude;
+    geolon = position.coords.longitude;
 
     positionLat.textContent = decimalToSexagesimal(positionCurrent.lat, "lat");
     positionLng.textContent = decimalToSexagesimal(positionCurrent.lng, "lng");
