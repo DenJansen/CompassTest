@@ -354,8 +354,8 @@
   function onHeadingChange(event) {
     var heading = event.alpha;
 
-    var lat1 = geoloc[0];
-    var lon1 = geoloc[1];
+    var lat1 = geoloc.coords.latitude;
+    var lon1 = geoloc.coords.longitude;
     var lat2 = 45.615849;
     var lon2 = -122.4932303;
     console.log(lat1)
@@ -513,15 +513,7 @@
 
     positionLat.textContent = decimalToSexagesimal(positionCurrent.lat, "lat");
     positionLng.textContent = decimalToSexagesimal(positionCurrent.lng, "lng");
-
-    var geoloc = (position.coords.latitude, position.coords.longitude);
-
-    return geoloc
   }
-
-  var locinfo = geoloc;
-
-  console.log(locinfo, "This is locinfo")
 
   function locationUpdateFail(error) {
     positionLat.textContent = "n/a";
@@ -629,7 +621,7 @@
   popup.addEventListener("click", popupClose);
   popupContents.addEventListener("click", popupContentsClick);
 
-  navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
+  var geoloc = navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
     enableHighAccuracy: false,
     maximumAge: 30000,
     timeout: 27000
