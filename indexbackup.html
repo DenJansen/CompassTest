@@ -609,15 +609,8 @@
     debugOrientationDefault.textContent = defaultOrientation;
   }
 
-  var absolute = instanceOfDeviceOrientationEvent.absolute
-
-  if (absolute) {
-    window.DeviceOrientationEvent = onHeadingChange;
-    window.addEventListener("deviceorientation", onHeadingChange, true);
-  } else {
-    window.ondeviceorientationabsolute = onHeadingChange;
-    window.addEventListener("deviceorientationabsolute", onHeadingChange, true);
-  }
+  window.ondeviceorientationabsolute = onHeadingChange;
+  window.addEventListener("deviceorientationabsolute", onHeadingChange, true);
 
   document.addEventListener("fullscreenchange", onFullscreenChange);
   document.addEventListener("webkitfullscreenchange", onFullscreenChange);
