@@ -612,7 +612,7 @@
   var absolute = instanceOfDeviceOrientationEvent.absolute
 
   if (absolute) {
-    window.DeviceOrientationEvent = onHeadingChange;
+    window.DeviceOrientation = onHeadingChange;
     window.addEventListener("deviceorientation", onHeadingChange, true);
   } else {
     window.ondeviceorientationabsolute = onHeadingChange;
