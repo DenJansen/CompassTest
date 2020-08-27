@@ -170,7 +170,7 @@
       function odaInfo(event) {
         odaAbs.textContent = event.absolute;
         if (fireTest.test(navigator.userAgent)) {
-          hdg = event.alpha - 180;
+          hdg = event.alpha;
           if (hdg < 0) {hdg = hdg + 360}
           odaAlpha.textContent = hdg.toFixed(1);
         } else {
