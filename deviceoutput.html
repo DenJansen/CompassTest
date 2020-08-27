@@ -22,7 +22,7 @@
           <th scope="row">navigator</th>
           <td>userAgent</td>
           <td id='nav-user'>N/A</td>
-          <td></td>
+          <td id='is-opera'>N/A</td>
         </tr>
         <tr>
           <th scope="row">navigator</th>
@@ -85,6 +85,11 @@
       var odGamma = document.getElementById("od-gamma");
       var geoLat = document.getElementById("geo-lat");
       var geoLon = document.getElementById("geo-lon");
+      var isOpera = document.getElementById("is-opera");
+
+      //Opera browser test
+      var operaTest = /OPR\//;
+      isOpera.textContent = operaTest.test(navigator.userAgent);
 
       function odInfo(event) {
         odAbs.textContent = event.absolute;
