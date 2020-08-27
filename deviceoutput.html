@@ -61,6 +61,30 @@
           <td></td>
         </tr>
         <tr>
+          <th scope="row">ondeviceorientationabsolute</th>
+          <td>absolute</td>
+          <td id='oda-abs'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">ondeviceoriondeviceorientationabsolute</th>
+          <td>alpha</td>
+          <td id='oda-alpha'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">ondeondeviceorientationabsolute</th>
+          <td>beta</td>
+          <td id='oda-beta'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">ondeondeviceorientationabsolute</th>
+          <td>gamma</td>
+          <td id='oda-gamma'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
           <th scope="row">navigator.geolocation.watchPosition</th>
           <td>lat</td>
           <td id='geo-lat'>N/A</td>
@@ -94,6 +118,10 @@
       var odAlpha = document.getElementById("od-alpha");
       var odBeta = document.getElementById("od-beta");
       var odGamma = document.getElementById("od-gamma");
+      var odaAbs = document.getElementById("oda-abs");
+      var odaAlpha = document.getElementById("oda-alpha");
+      var odaBeta = document.getElementById("oda-beta");
+      var odaGamma = document.getElementById("oda-gamma");
       var geoLat = document.getElementById("geo-lat");
       var geoLon = document.getElementById("geo-lon");
       var isCompat = document.getElementById("is-compat");
@@ -139,6 +167,14 @@
         console.log(event)
       }
 
+      function odaInfo(event) {
+        odaAbs.textContent = event.absolute;
+        odaAlpha.textContent = event.alpha.toFixed(1);
+        odaBeta.textContent = event.beta.toFixed(1);
+        odaGamma.textContent = event.gamma.toFixed(1);
+        console.log(event)
+      }
+
       function locationUpdate(position) {
         geoLat.textContent = position.coords.latitude;
         geoLon.textContent = position.coords.longitude;
@@ -154,6 +190,8 @@
       }
 
       window.addEventListener("deviceorientation", odInfo, true);
+
+      window.addEventListener("deviceorientatioabsolute", odaInfo, true);
 
       navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
           enableHighAccuracy: false,
