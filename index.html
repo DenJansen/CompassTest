@@ -355,6 +355,11 @@
   // called on device orientation change
   function onHeadingChange(event) {
     var hdg = event.alpha;
+
+    if (typeof event.webkitCompassHeading !== "undefined") {
+       hdg = event.webkitCompassHeading; //iOS non-standard
+    }
+
     var pi = Math.PI;
 
     var lat1 = geolat * pi / 180;
