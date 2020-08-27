@@ -19,6 +19,12 @@
       </thead>
       <tbody>
         <tr>
+          <th scope="row">navigator</th>
+          <td>userAgent</td>
+          <td id='nav-user'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
           <th scope="row">ondeviceorientation</th>
           <td>absolute</td>
           <td id='od-abs'>N/A</td>
@@ -58,6 +64,7 @@
     </table>
     <script type="text/javascript">
       // elements that output to table
+      var navUser = document.getElementById("nav-user")
       var odAbs = document.getElementById("od-abs");
       var odAlpha = document.getElementById("od-alpha");
       var odBeta = document.getElementById("od-beta");
@@ -94,6 +101,8 @@
           maximumAge: 30000,
           timeout: 27000
       });
+
+      navUser.textContent = navigator.userAgent;
     </script>
   </body>
 </html>
