@@ -72,6 +72,12 @@
           <td id='geo-lon'>N/A</td>
           <td></td>
         </tr>
+        <tr>
+          <th scope="row">AbsoluteOrientationSensor</th>
+          <td>target.quaternion</td>
+          <td id='abs-quat'>N/A</td>
+          <td></td>
+        </tr>
       </tbody>
     </table>
     <script type="text/javascript">
@@ -86,10 +92,27 @@
       var geoLat = document.getElementById("geo-lat");
       var geoLon = document.getElementById("geo-lon");
       var isOpera = document.getElementById("is-opera");
+      var absQuat = document.getElementById("abs-quat");
 
       //Opera browser test
       var operaTest = /OPR\//;
-      isOpera.textContent = "Opera: " + operaTest.test(navigator.userAgent);
+      var operaTrue = operaTest.test(navigator.userAgent);
+      isOpera.textContent = "Opera: " + operaTrue;
+
+      //Opera sensor function
+      function listener(event) {
+        absQuat.textContent = event.target.quaternion;
+      }
+
+      //Opera sensor
+      if (operaTrue) {
+        const options = { frequency: 60, referenceFrame: 'device' };
+        const sensor = new AbsoluteOrientationSensor(options);
+        sensor.addEventListener("reading", listener);
+        sensor.start();
+      } else {
+        absQuat.textContent = "N/A";
+      }
 
       function odInfo(event) {
         odAbs.textContent = event.absolute;
