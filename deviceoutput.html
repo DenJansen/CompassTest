@@ -31,6 +31,12 @@
             <td id='nav-code'>N/A</td>
             <td></td>
           </tr>
+          <tr>
+            <th scope="row">navigator</th>
+            <td>appName</td>
+            <td id='nav-name'>N/A</td>
+            <td></td>
+          </tr>
         <tr>
           <th scope="row">ondeviceorientation</th>
           <td>absolute</td>
@@ -73,6 +79,7 @@
       // elements that output to table
       var navUser = document.getElementById("nav-user")
       var navCode = document.getElementById("nav-code")
+      var navName = document.getElementById("nav-name")
       var odAbs = document.getElementById("od-abs");
       var odAlpha = document.getElementById("od-alpha");
       var odBeta = document.getElementById("od-beta");
@@ -112,6 +119,7 @@
 
       navUser.textContent = navigator.userAgent;
       navCode.textContent = navigator.appCodeName;
+      navName.textContent = navigator.appName;
     </script>
   </body>
 </html>
