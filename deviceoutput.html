@@ -67,19 +67,19 @@
           <td></td>
         </tr>
         <tr>
-          <th scope="row">ondeviceoriondeviceorientationabsolute</th>
+          <th scope="row">ondeviceorientationabsolute</th>
           <td>alpha</td>
           <td id='oda-alpha'>N/A</td>
           <td></td>
         </tr>
         <tr>
-          <th scope="row">ondeondeviceorientationabsolute</th>
+          <th scope="row">ondeviceorientationabsolute</th>
           <td>beta</td>
           <td id='oda-beta'>N/A</td>
           <td></td>
         </tr>
         <tr>
-          <th scope="row">ondeondeviceorientationabsolute</th>
+          <th scope="row">ondeviceorientationabsolute</th>
           <td>gamma</td>
           <td id='oda-gamma'>N/A</td>
           <td></td>
@@ -191,6 +191,7 @@
 
       window.addEventListener("deviceorientation", odInfo, true);
 
+      window.ondeviceorientationabsolute = odaInfo;
       window.addEventListener("deviceorientatioabsolute", odaInfo, true);
 
       navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
