@@ -173,9 +173,9 @@
         odaBeta.textContent = event.beta.toFixed(1);
         odaGamma.textContent = event.gamma.toFixed(1);
         if (fireTest.test(navigator.userAgent)) {
-          hdg = event.absolute - 180;
+          hdg = event.alpha - 180;
           if (hdg < 0) {hdg = hdg + 360}
-          odaAbs.textContent = hdg;
+          odaAlpha.textContent = hdg;
         }
         console.log(event)
       }
