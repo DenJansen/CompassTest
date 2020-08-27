@@ -106,13 +106,13 @@
 
       isCompat.textContent = "Generic Sensor Compatible: " + compatTrue;
 
-      //Opera sensor function
+      //Generic Sensor function
       function listener(event) {
         absQuat.textContent = event.target.quaternion;
       }
 
-      //Opera sensor
-      if (operaTrue) {
+      //Generic Sensor
+      if (compatTrue) {
         const options = { frequency: 60, referenceFrame: 'device' };
         const sensor = new AbsoluteOrientationSensor(options);
         sensor.addEventListener("reading", listener);
