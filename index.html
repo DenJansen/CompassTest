@@ -354,12 +354,12 @@
 
   // called on device orientation change
   function onHeadingChange(event) {
-    var hdg = event.alpha;
-    if (isChrome) {
-      var heading = hdg;
-    } else {
-      var heading = (hdg + 180) % 360;
-    }
+    var heading = event.alpha;
+    // if (isChrome) {
+    //   var heading = hdg;
+    // } else {
+    //   var heading = (hdg + 180) % 360;
+    // }
     // var pi = Math.PI;
     //
     // var lat1 = geolat * pi / 180;
