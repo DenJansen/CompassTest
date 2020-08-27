@@ -42,6 +42,18 @@
           <td id='od-gamma'>N/A</td>
           <td></td>
         </tr>
+        <tr>
+          <th scope="row">navigator.geolocation.watchPosition</th>
+          <td>lat</td>
+          <td id='geo-lat'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">navigator.geolocation.watchPosition</th>
+          <td>lon</td>
+          <td id='geo-lon'>N/A</td>
+          <td></td>
+        </tr>
       </tbody>
     </table>
     <script type="text/javascript">
@@ -50,6 +62,8 @@
       var odAlpha = document.getElementById("od-alpha");
       var odBeta = document.getElementById("od-beta");
       var odGamma = document.getElementById("od-gamma");
+      var geoLat = document.getElementById("geo-lat");
+      var geoLon = document.getElementById("geo-lon");
 
       function odInfo(event) {
         odAbs.textContent = event.absolute;
@@ -59,8 +73,27 @@
         console.log(event)
       }
 
+      function locationUpdate(position) {
+        geoLat.textContent = position.coords.latitude;
+        geoLon.textContent = position.coords.longitude;
+        //
+        // geoLat.textContent = decimalToSexagesimal(position.coords.latitude, "lat");
+        // geoLon.textContent = decimalToSexagesimal(position.coords.longlongitude, "lng");
+      }
+
+      function locationUpdateFail(error) {
+        geoLat.textContent = "n/a";
+        geoLon.textContent = "n/a";
+        console.log("location fail: ", error);
+      }
+
       window.addEventListener("deviceorientation", odInfo, true);
 
+      navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
+          enableHighAccuracy: false,
+          maximumAge: 30000,
+          timeout: 27000
+      });
     </script>
   </body>
 </html>
