@@ -52,7 +52,7 @@
       var odGamma = document.getElementById("od-gamma");
 
       function odInfo(event) {
-        odAbs.textContent = event.absolute;
+        odAbs.textContent = instanceOfDeviceOrientationEvent.absolute;
         odAlpha.textContent = event.alpha.toFixed(1);
         odBeta.textContent = event.beta.toFixed(1);
         odGamma.textContent = event.gamma.toFixed(1);
