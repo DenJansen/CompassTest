@@ -53,9 +53,9 @@
 
       function odInfo(event) {
         odAbs.textContent = event.absolute;
-        odAlpha.textContent = event.alpha;
-        odBeta.textContent = event.beta;
-        odGamma.textContent = event.gamma;
+        odAlpha.textContent = event.alpha.toFixed(2);
+        odBeta.textContent = event.beta.toFixed(2);
+        odGamma.textContent = event.gamma.toFixed(2);
       }
 
       window.ondeviceorientation = odInfo;
