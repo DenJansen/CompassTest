@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Event</th>
+          <th scope="col">Property</th>
+          <th scope="col">Value</th>
+          <th scope="col">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">ondeviceorientation</th>
+          <td>absolute</td>
+          <td id='od-abs'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">ondeviceorientation</th>
+          <td>alpha</td>
+          <td id='od-alpha'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">ondeviceorientation</th>
+          <td>beta</td>
+          <td id='od-beta'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">ondeviceorientation</th>
+          <td>gamma</td>
+          <td id='od-gamma'>N/A</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <script type="text/javascript">
+      // elements that output to table
+      var odAbs = document.getElementById("od-abs");
+      var odAlpha = document.getElementById("od-alpha");
+      var odBeta = document.getElementById("od-beta");
+      var odGamma = document.getElementById("od-gamma");
+
+      function odInfo(event) {
+        odAbs.textContent = event.absolute;
+        odAlpha.textContent = event.alpha;
+        odBeta.textContent = event.beta;
+        odGamma.textContent = event.gamma;
+      }
+
+      window.ondeviceorientation = odInfo;
+      window.addEventListener("deviceorientation", odInfo, true);
+
+    </script>
+  </body>
+</html>
