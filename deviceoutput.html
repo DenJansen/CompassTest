@@ -145,7 +145,6 @@
         absQuat.textContent = event.target.quaternion;
         var q = event.target.quaternion;
         heading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
-        if (fireTest.test(navigator.userAgent)) {heading = heading - 180}
         if (heading < 0) {heading = heading + 360}
         absHdg.textContent = heading.toFixed(1);
       }
@@ -173,6 +172,11 @@
         odaAlpha.textContent = event.alpha.toFixed(1);
         odaBeta.textContent = event.beta.toFixed(1);
         odaGamma.textContent = event.gamma.toFixed(1);
+        if (fireTest.test(navigator.userAgent)) {
+          hdg = event.absolute - 180;
+          if (hdg < 0) {hdg = hdg + 360}
+          odaAbs.textContent = hdg;
+        }
         console.log(event)
       }
 
