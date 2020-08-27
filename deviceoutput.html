@@ -128,7 +128,7 @@
       var absQuat = document.getElementById("abs-quat");
       var absHdg = document.getElementById("abs-hdg");
 
-      //Opera browser test
+      //Browser compatibility test
       var operaTest = /OPR\//;
       var fireTest = /Firefox\//;
 
@@ -145,8 +145,9 @@
         absQuat.textContent = event.target.quaternion;
         var q = event.target.quaternion;
         heading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
-        if(heading < 0) heading = 360+heading;
-        absHdg.textContent = heading;
+        if (fireTest.test(navigator.userAgent)) {heading = heading - 180}
+        if (heading < 0) {heading = heading + 360}
+        absHdg.textContent = heading.toFixed(1);
       }
 
       //Generic Sensor
