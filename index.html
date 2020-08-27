@@ -610,7 +610,7 @@
     debugOrientationDefault.textContent = defaultOrientation;
   }
 
-  if (window.DeviceOrientationEvent.absolute) {
+  if (instanceOfDeviceOrientationEvent.absolute) {
     window.ondeviceorientation = onHeadingChange;
     window.addEventListener("deviceorientation", onHeadingChange, true);
   } else {
