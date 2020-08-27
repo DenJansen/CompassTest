@@ -61,6 +61,12 @@
           <td></td>
         </tr>
         <tr>
+          <th scope="row">ondeviceorientation</th>
+          <td>webkitCompassHeading</td>
+          <td id='od-webk'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
           <th scope="row">ondeviceorientationabsolute</th>
           <td>absolute</td>
           <td id='oda-abs'>N/A</td>
@@ -118,6 +124,7 @@
       var odAlpha = document.getElementById("od-alpha");
       var odBeta = document.getElementById("od-beta");
       var odGamma = document.getElementById("od-gamma");
+      var odWebk = document.getElementById("od-webk");
       var odaAbs = document.getElementById("oda-abs");
       var odaAlpha = document.getElementById("oda-alpha");
       var odaBeta = document.getElementById("oda-beta");
@@ -164,6 +171,7 @@
         odAlpha.textContent = event.alpha.toFixed(1);
         odBeta.textContent = event.beta.toFixed(1);
         odGamma.textContent = event.gamma.toFixed(1);
+        odWebk.textContent = event.webkitCompassHeading.toFixed(1);
         console.log(event)
       }
 
