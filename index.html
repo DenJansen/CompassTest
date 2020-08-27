@@ -614,21 +614,18 @@
     debugOrientationDefault.textContent = defaultOrientation;
   }
 
-  window.ondeviceorientation = onHeadingChange;
-  window.addEventListener("deviceorientation", onHeadingChange, true);
+var isChrome = false;
+var isChromium = window.chrome;
+var vendorName = window.navigator.vendor;
 
-// var isChrome = false;
-// var isChromium = window.chrome;
-// var vendorName = window.navigator.vendor;
-//
-// if (isChromium && vendorName == "Google Inc.") {
-//     isChrome = true;
-//     window.ondeviceorientationabsolute = onHeadingChange;
-//     window.addEventListener("deviceorientationabsolute", onHeadingChange, true);
-//   } else {
-//     window.ondeviceorientation = onHeadingChange;
-//     window.addEventListener("deviceorientation", onHeadingChange, true);
-//   }
+if (isChromium && vendorName == "Google Inc.") {
+    isChrome = true;
+    window.ondeviceorientationabsolute = onHeadingChange;
+    window.addEventListener("deviceorientationabsolute", onHeadingChange, true);
+  } else {
+    window.ondeviceorientation = onHeadingChange;
+    window.addEventListener("deviceorientation", onHeadingChange, true);
+  }
 
   // if (instanceOfDeviceOrientationEvent.absolute) {
   //   window.ondeviceorientation = onHeadingChange;
