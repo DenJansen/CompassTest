@@ -89,7 +89,7 @@
 
       //Opera browser test
       var operaTest = /OPR\//;
-      isOpera.textContent = operaTest.test(navigator.userAgent);
+      isOpera.textContent = "Opera: " + operaTest.test(navigator.userAgent);
 
       function odInfo(event) {
         odAbs.textContent = event.absolute;
