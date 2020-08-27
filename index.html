@@ -610,8 +610,16 @@
     debugOrientationDefault.textContent = defaultOrientation;
   }
 
-  window.ondeviceorientationabsolute = onHeadingChange;
-  window.addEventListener("deviceorientationabsolute", onHeadingChange, true);
+var isChromium = window.chrome;
+var vendorName = window.navigator.vendor;
+
+if (isChromium && vendorName === "Google Inc.") {
+    window.ondeviceorientationabsolute = onHeadingChange;
+    window.addEventListener("deviceorientationabsolute", onHeadingChange, true);
+  } else {
+    window.ondeviceorientation = onHeadingChange;
+    window.addEventListener("deviceorientation", onHeadingChange, true);
+  }
 
   // if (instanceOfDeviceOrientationEvent.absolute) {
   //   window.ondeviceorientation = onHeadingChange;
