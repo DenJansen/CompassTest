@@ -78,6 +78,11 @@
           <td id='abs-quat'>N/A</td>
           <td></td>
         </tr>
+        <th scope="row">AbsoluteOrientationSensor</th>
+        <td>heading</td>
+        <td id='abs-hdg'>N/A</td>
+        <td></td>
+      </tr>
       </tbody>
     </table>
     <script type="text/javascript">
@@ -93,6 +98,7 @@
       var geoLon = document.getElementById("geo-lon");
       var isCompat = document.getElementById("is-compat");
       var absQuat = document.getElementById("abs-quat");
+      var absHdg = document.getElementById("abs-hdg");
 
       //Opera browser test
       var operaTest = /OPR\//;
@@ -109,6 +115,10 @@
       //Generic Sensor function
       function listener(event) {
         absQuat.textContent = event.target.quaternion;
+        var q = event.target.quaternion;
+        heading = Math.atan2(2*q[0]*q[1] + 2*q[2]*q[3], 1 - 2*q[1]*q[1] - 2*q[2]*q[2])*(180/Math.PI);
+        if(heading < 0) heading = 360+heading;
+        absHdg.textContent = heading;
       }
 
       //Generic Sensor
