@@ -356,19 +356,19 @@
   function onHeadingChange(event) {
     var hdg = event.alpha;
 
-    var pi = Math.PI;
-
-    var lat1 = geolat * pi / 180;
-    var lon1 = geolon * pi / 180;
-    var lat2 = 45.502468 * pi / 180;
-    var lon2 = -122.674942 * pi / 180;
-
-    var x = Math.cos(lat2) * Math.sin(lon2 - lon1);
-    var y = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2-lon1);
-    var brng = (Math.atan2(x, y) * 180 / pi) + 360;
-
-    var heading = (hdg + brng) % 360
-    console.log(heading)
+    // var pi = Math.PI;
+    //
+    // var lat1 = geolat * pi / 180;
+    // var lon1 = geolon * pi / 180;
+    // var lat2 = 45.502468 * pi / 180;
+    // var lon2 = -122.674942 * pi / 180;
+    //
+    // var x = Math.cos(lat2) * Math.sin(lon2 - lon1);
+    // var y = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2-lon1);
+    // var brng = (Math.atan2(x, y) * 180 / pi) + 360;
+    //
+    // var heading = (hdg + brng) % 360
+    // console.log(heading)
 
     var orientation = getBrowserOrientation();
 
