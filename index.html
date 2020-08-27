@@ -354,7 +354,7 @@
 
   // called on device orientation change
   function onHeadingChange(event) {
-    var hdg = event.alpha;
+    var heading = event.alpha;
 
     // var pi = Math.PI;
     //
@@ -369,7 +369,6 @@
     //
     // var heading = (hdg + brng) % 360
     // console.log(heading)
-    var heading = hdg;
 
     var orientation = getBrowserOrientation();
 
