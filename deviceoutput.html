@@ -103,6 +103,12 @@
           <td></td>
         </tr>
         <tr>
+          <th scope="row">Axios Request</th>
+          <td>declination</td>
+          <td id='geo-dec'>N/A</td>
+          <td></td>
+        </tr>
+        <tr>
           <th scope="row">AbsoluteOrientationSensor</th>
           <td>target.quaternion</td>
           <td id='abs-quat'>N/A</td>
@@ -131,6 +137,7 @@
       var odaGamma = document.getElementById("oda-gamma");
       var geoLat = document.getElementById("geo-lat");
       var geoLon = document.getElementById("geo-lon");
+      var geoDec = document.getElementById("geo-dec");
       var isCompat = document.getElementById("is-compat");
       var absQuat = document.getElementById("abs-quat");
       var absHdg = document.getElementById("abs-hdg");
@@ -186,6 +193,8 @@
       function locationUpdate(position) {
         geoLat.textContent = position.coords.latitude;
         geoLon.textContent = position.coords.longitude;
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
         //
         // geoLat.textContent = decimalToSexagesimal(position.coords.latitude, "lat");
         // geoLon.textContent = decimalToSexagesimal(position.coords.longlongitude, "lng");
@@ -211,6 +220,22 @@
       navUser.textContent = navigator.userAgent;
       navCode.textContent = navigator.appCodeName;
       navName.textContent = navigator.appName;
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    let xhr = new XMLHttpRequest();
+    var date = today.getDate();
+    var url = "http://geomag.bgs.ac.uk/web_service/GMModels/wmm/2020/?latitude=" + latitude + "&longitude=" + longitude + "&altitude=0&date=" + date + "&format=xml";
+
+    xhr.open('GET', url, true);
+    xhr.send();
+
+    xhr.addEventListener("readystatechange", processRequest, false);
+
+    xhr.onreadystatechange = processRequest;
+
+    function processRequest(event) {
+      geoDec.textContent = event.field-value.declination;
+    }
     </script>
   </body>
 </html>
